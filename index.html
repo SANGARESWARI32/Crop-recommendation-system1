@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crop Recommendation System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Crop Recommendation System</h1>
+
+    <!-- Soil Type -->
+    <label>Select Soil Type:</label>
+    <select id="soil">
+        <option value="">Select Soil</option>
+        <option value="clay">Clay</option>
+        <option value="sandy">Sandy</option>
+        <option value="loamy">Loamy</option>
+    </select>
+
+    <!-- Previous Crop -->
+    <label>Previously Planted Crop:</label>
+    <select id="previousCrop">
+        <option value="">Select Crop</option>
+        <option value="rice">Rice</option>
+        <option value="wheat">Wheat</option>
+        <option value="cotton">Cotton</option>
+        <option value="maize">Maize</option>
+        <option value="sugarcane">Sugarcane</option>
+    </select>
+
+    <!-- Weather Display -->
+    <div class="weather-box">
+        <p id="temperature">Temperature: -- °C</p>
+        <p id="weather">Weather: --</p>
+    </div>
+
+    <button onclick="recommendCrop()">Recommend Crop</button>
+
+    <div class="result-box">
+        <p id="result"></p>
+    </div>
+
+</div>
+
+<script src="jscript.js"></script>
+
+</body>
+</html>
