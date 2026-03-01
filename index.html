@@ -1,51 +1,80 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Crop Recommendation System</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Recommendation - Home</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-
 <body>
+    <header>
+        <div class="logo">🌱 CropSmart</div>
+        <nav class="nav-links">
+            <a href="index.html" class="active"><i class="fas fa-home"></i> Home</a>
+            <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+            <a href="query.html"><i class="fas fa-question-circle"></i> Query</a>
+        </nav>
+    </header>
 
-<div class="container">
+    <main class="main-container">
+        <div class="glass-card">
+            <h1>Crop Recommendation System</h1>
+            
+            <label><i class="fas fa-leaf"></i> Select Soil Type:</label>
+            <select id="soil">
+                <option value="">— Choose Soil Type —</option>
+                <option value="clay">Clay Soil (Heavy, Moisture Retentive)</option>
+                <option value="sandy">Sandy Soil (Light, Quick Drainage)</option>
+                <option value="loamy">Loamy Soil (Ideal, Balanced)</option>
+            </select>
 
-    <h1>Crop Recommendation System</h1>
+            <label><i class="fas fa-seedling"></i> Previously Planted Crop:</label>
+            <select id="previousCrop">
+                <option value="">— Select Previous Crop —</option>
+                <option value="rice">Rice</option>
+                <option value="wheat">Wheat</option>
+                <option value="cotton">Cotton</option>
+                <option value="maize">Maize</option>
+                <option value="sugarcane">Sugarcane</option>
+            </select>
 
-    <!-- Soil Type -->
-    <label>Select Soil Type:</label>
-    <select id="soil">
-        <option value="">Select Soil</option>
-        <option value="clay">Clay</option>
-        <option value="sandy">Sandy</option>
-        <option value="loamy">Loamy</option>
-    </select>
+            <!-- Weather Display with Modern Loading -->
+            <div class="weather-box">
+                <div class="weather-header">
+                    <i class="fas fa-cloud-sun"></i>
+                    <h3>Live Weather Data</h3>
+                </div>
+                <div class="weather-content">
+                    <div class="weather-item">
+                        <i class="fas fa-temperature-high"></i>
+                        <span id="temperature">Loading temperature...</span>
+                    </div>
+                    <div class="weather-item">
+                        <i class="fas fa-cloud"></i>
+                        <span id="weather">Loading weather...</span>
+                    </div>
+                    <div class="weather-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span id="location">Detecting location...</span>
+                    </div>
+                </div>
+                <div class="weather-refresh" onclick="refreshWeather()">
+                    <i class="fas fa-sync-alt"></i> Refresh Weather
+                </div>
+            </div>
 
-    <!-- Previous Crop -->
-    <label>Previously Planted Crop:</label>
-    <select id="previousCrop">
-        <option value="">Select Crop</option>
-        <option value="rice">Rice</option>
-        <option value="wheat">Wheat</option>
-        <option value="cotton">Cotton</option>
-        <option value="maize">Maize</option>
-        <option value="sugarcane">Sugarcane</option>
-    </select>
+            <button onclick="recommendCrop()" class="recommend-btn">
+                <i class="fas fa-magic"></i> Recommend Crop
+            </button>
 
-    <!-- Weather Display -->
-    <div class="weather-box">
-        <p id="temperature">Temperature: -- °C</p>
-        <p id="weather">Weather: --</p>
-    </div>
+            <div class="result-box" id="resultBox">
+                <div id="result"></div>
+            </div>
+        </div>
+    </main>
 
-    <button onclick="recommendCrop()">Recommend Crop</button>
-
-    <div class="result-box">
-        <p id="result"></p>
-    </div>
-
-</div>
-
-<script src="jscript.js"></script>
-
+    <script src="script.js"></script>
 </body>
 </html>
